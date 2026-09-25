@@ -1,0 +1,103 @@
+import tkinter as tk
+
+# Window
+window = tk.Tk()
+window.title("Restaurant Management System")
+window.geometry("500x500")
+
+
+# Title
+title = tk.Label(
+    window,
+    text="Restaurant Management System",
+    font=("Arial", 20)
+)
+title.pack(pady=20)
+
+
+# Customer Name
+name_label = tk.Label(
+    window,
+    text="Customer Name"
+)
+name_label.pack()
+
+name_entry = tk.Entry(window)
+name_entry.pack(pady=5)
+
+
+# Food Name
+food_label = tk.Label(
+    window,
+    text="Food Name"
+)
+food_label.pack()
+
+food_entry = tk.Entry(window)
+food_entry.pack(pady=5)
+
+
+# Quantity
+quantity_label = tk.Label(
+    window,
+    text="Quantity"
+)
+quantity_label.pack()
+
+quantity_entry = tk.Entry(window)
+quantity_entry.pack(pady=5)
+
+
+# Price
+price_label = tk.Label(
+    window,
+    text="Price"
+)
+price_label.pack()
+
+price_entry = tk.Entry(window)
+price_entry.pack(pady=5)
+
+
+# Result
+result_label = tk.Label(
+    window,
+    text="Total: ₹0",
+    font=("Arial", 14)
+)
+result_label.pack(pady=20)
+
+
+# Calculate function
+def calculate_total():
+
+    quantity = int(quantity_entry.get())
+    price = int(price_entry.get())
+
+    total = quantity * price
+
+    result_label.config(
+        text="Total: ₹" + str(total)
+    )
+
+
+# Calculate Button
+calculate_button = tk.Button(
+    window,
+    text="Calculate Total",
+    command=calculate_total
+)
+calculate_button.pack()
+
+
+# Exit Button
+exit_button = tk.Button(
+    window,
+    text="Exit",
+    command=window.destroy
+)
+exit_button.pack(pady=10)
+
+
+# Run program
+window.mainloop()
